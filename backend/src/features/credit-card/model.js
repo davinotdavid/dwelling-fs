@@ -9,15 +9,3 @@ const CreditCardSchema = new Schema({
 
 // Export model
 module.exports = mongoose.model('CreditCard', CreditCardSchema)
-
-// export class CreditCard {
-//   constructor ({ id, cardNumber }) {
-// Verify credit card number correctness
-// if (typeof cardNumber !== 'string' || cardNumber.length !== 16) { throw new Error('Invalid card number') }
-
-//     // Set fields
-//     this.id = id
-//     this.cardNumber = cardNumber
-//     this.balance = balance
-//   }
-// }
