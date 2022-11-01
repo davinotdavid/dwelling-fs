@@ -1,8 +1,8 @@
 import { useState, ChangeEvent, MouseEvent } from 'react';
 import DwellingIcon from '../Icons/DwellingIcon';
-import styles from './BalanceCard.module.css';
+import styles from './BalanceCardForm.module.css';
 
-export default function BalanceCard() {
+export default function BalanceCardForm() {
   const [creditCardNumber, setCreditCardNumber] = useState<string>('');
 
   const onCreditCardInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,11 +21,13 @@ export default function BalanceCard() {
   }
 
   const onCheckButtonClicked = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
     // TODO: Call the API
   }
 
   return (
-    <>
+    <form>
       <div className={styles.container}>
         <div className={styles.titleContainer}>
           <h1>Balance Checker</h1>
@@ -46,11 +48,12 @@ export default function BalanceCard() {
       />
 
       <button
+        type='submit'
         className={styles.checkButton}
         onClick={onCheckButtonClicked}
       >
         Check
       </button>
-    </>
+    </form>
   )
 }

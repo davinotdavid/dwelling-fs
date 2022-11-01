@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import BalanceCard from '../components/BalanceCard';
+import BalanceCardForm from '../components/BalanceCardForm';
 import CardList from '../components/CardList';
 import CardListItem from '../components/CardListItem';
 import styles from '../styles/Home.module.css';
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <BalanceCard />
+        <BalanceCardForm />
         <CardList>
           {
             cards.map(({ cardId, cardLastFourDigits, balance }) =>
