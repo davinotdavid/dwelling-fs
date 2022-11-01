@@ -1,0 +1,34 @@
+.cardListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.balanceContainer {
+  display: flex;
+}
+
+.balanceContainer span {
+  margin-right: 8px;
+}
+
+.balanceContainer button {
+  /* Resetting browser button styles */
+  background: none;
+  border: 0;
+  padding: 0;
+
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.balanceContainer button:hover {
+  background-color: #EEE;
+}
+
+.balanceContainer button:active {
+  background-color: #DDD;
+}
