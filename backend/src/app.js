@@ -1,5 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv')
+const cors = require('cors')
 const mongoose = require('mongoose')
 const creditCardRoutes = require('./features/credit-card/routes')
 
@@ -9,6 +10,7 @@ dotenv.config()
 // Setup Express
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 // [DB] Set up mongoose connection
 const mongoDB = process.env.MONGODB_CONNECTION_STRING
