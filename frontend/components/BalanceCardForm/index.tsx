@@ -46,7 +46,7 @@ export default function BalanceCardForm() {
       <input
         onChange={onCreditCardInputChange}
         value={cardNumber}
-        className={styles.cardInput}
+        className={`${styles.cardInput} ${error && styles.cardInputError}`}
         name="cardnumber"
         type="text"
         placeholder="xxxx xxxx xxxx xxxx"

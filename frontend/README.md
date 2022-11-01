@@ -38,4 +38,4 @@ Since I've used Next.js, it made sense to me to use Vercel as my hosting of choi
 
 ... better error handling (error boundaries, for instance)
 
-... more (and better) tests
+... more (and better) tests. Perhaps E2E.

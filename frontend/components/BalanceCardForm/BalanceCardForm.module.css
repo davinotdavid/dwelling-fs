@@ -27,6 +27,10 @@
   margin-bottom: 15px;
 }
 
+.cardInputError {
+  border: 1px solid #FF4D00;
+}
+
 .checkButton {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
