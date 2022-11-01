@@ -33,7 +33,7 @@ export default function BalanceCardForm() {
           <h1>Balance Checker</h1>
           <DwellingIcon width={25} height={23} />
         </div>
-        <p>Enter your card number to check it's balance.</p>
+        <p>Enter your card number to check it&apos;s balance.</p>
       </div>
 
       <input
