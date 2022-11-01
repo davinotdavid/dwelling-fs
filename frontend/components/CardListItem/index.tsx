@@ -1,14 +1,20 @@
 import DeleteIcon from '../Icons/DeleteIcon';
 import styles from './CardListItem.module.css';
+import { useDeleteCard } from './hooks';
 
 type CardListItemProps = {
   cardId: string;
   cardLastFourDigits: string;
   balance: number;
-  onDeleteButtonClicked: (cardId: string) => void,
 }
 
-export default function CardListItem({ cardId, cardLastFourDigits, balance, onDeleteButtonClicked }: CardListItemProps) {
+export default function CardListItem({ cardId, cardLastFourDigits, balance }: CardListItemProps) {
+  const deleteCard = useDeleteCard();
+
+  const onDeleteButtonClicked = (cardId: string) => {
+    deleteCard.mutate(cardId);
+  }
+
   return (
     <li className={styles.cardListItem}>
       <span>Card ending in {cardLastFourDigits}</span>

@@ -1,31 +1,11 @@
-import { useState } from 'react';
 import type { NextPage } from 'next'
 import Head from 'next/head'
+
 import BalanceCardForm from '../components/BalanceCardForm';
 import CardList from '../components/CardList';
-import CardListItem from '../components/CardListItem';
 import styles from '../styles/Home.module.css';
 
-const cardFakeData = [
-  {
-    cardId: '111',
-    cardLastFourDigits: '0232',
-    balance: 23.2,
-  },
-  {
-    cardId: '222',
-    cardLastFourDigits: '1232',
-    balance: 41.7,
-  }
-]
-
 const Home: NextPage = () => {
-  const [cards, setCards] = useState(cardFakeData);
-
-  const onDeleteButtonClicked = (cardId: string) => {
-    // TODO: Call API to delete
-  }
-
   return (
     <>
       <Head>
@@ -36,19 +16,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <BalanceCardForm />
-        <CardList>
-          {
-            cards.map(({ cardId, cardLastFourDigits, balance }) =>
-              <CardListItem
-                key={cardId}
-                cardId={cardId}
-                cardLastFourDigits={cardLastFourDigits}
-                balance={balance}
-                onDeleteButtonClicked={onDeleteButtonClicked}
-              />
-            )
-          }
-        </CardList>
+        <CardList />
       </main>
     </>
   )

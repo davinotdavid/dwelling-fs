@@ -1,3 +1,7 @@
 .main {
   padding: 15px;
+
+  /* Limit size and center aling on bigger screens  */
+  max-width: 500px;
+  margin: 0 auto;
 }

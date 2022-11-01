@@ -1,9 +1,12 @@
 import { useState, ChangeEvent, MouseEvent } from 'react';
 import DwellingIcon from '../Icons/DwellingIcon';
 import styles from './BalanceCardForm.module.css';
+import { useCreateCard } from './hooks';
 
 export default function BalanceCardForm() {
-  const [creditCardNumber, setCreditCardNumber] = useState<string>('');
+  const [cardNumber, setCardNumber] = useState<string>('');
+  const [error, setError] = useState<string>('');
+  const addCard = useCreateCard();
 
   const onCreditCardInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -12,18 +15,22 @@ export default function BalanceCardForm() {
     const onlyNumbers = value.replace(/\D/g, '');
 
     // Add a space in between each set of 4 numbers
-    const formattedValue = onlyNumbers
-      .replace(/(\d{4})/, '$1 ')
-      .replace(/(\d{4}) (\d{4})/, '$1 $2 ')
-      .replace(/(\d{4}) (\d{4}) (\d{4})/, '$1 $2 $3 ');
+    const formattedValue = onlyNumbers.replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'')
 
-    setCreditCardNumber(formattedValue);
+    setCardNumber(formattedValue);
   }
 
   const onCheckButtonClicked = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    // TODO: Call the API
+    const sanitizedCardNumber = cardNumber.replace(/\s/g, "");
+
+    if (sanitizedCardNumber.length !== 16) {
+      setError('Invalid number');
+    } else {
+      addCard.mutate(sanitizedCardNumber);
+      setError('');
+    }
   }
 
   return (
@@ -38,7 +45,7 @@ export default function BalanceCardForm() {
 
       <input
         onChange={onCreditCardInputChange}
-        value={creditCardNumber}
+        value={cardNumber}
         className={styles.cardInput}
         name="cardnumber"
         type="text"
@@ -46,6 +53,10 @@ export default function BalanceCardForm() {
         aria-label="Credit card number"
         maxLength={19}
       />
+
+      {
+        error && <p className={styles.errorMessage} role="alert">Invalid number</p>
+      }
 
       <button
         type='submit'
