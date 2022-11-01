@@ -4,6 +4,7 @@
   "description": "Part of the technical exercise for Senior Full Stack Developer at Dwelling.co",
   "main": "src/app.js",
   "scripts": {
+    "start": "nodemon src/app.js",
     "test": "vitest"
   },
   "keywords": [],
@@ -15,6 +16,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.4.0",
     "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^2.0.20",
     "vitest": "^0.24.4"
   },
   "dependencies": {
