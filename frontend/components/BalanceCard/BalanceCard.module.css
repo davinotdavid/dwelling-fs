@@ -1,0 +1,48 @@
+.container {
+  background-color: #FAF5F1;
+  border: 1px solid #000;
+  border-bottom: 0;
+  border-radius: 10px 10px 0px 0px;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;  
+}
+
+.titleContainer h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  width: 100%;
+}
+
+.cardInput {
+  padding: 15px;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 15px;
+}
+
+.checkButton {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  height: 50px;
+  width: 100%;
+  border-radius: 10px;
+  border: 0;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.checkButton:hover {
+  background-color: #222;
+}
+
+.checkButton:active {
+  background-color: #444;
+}
