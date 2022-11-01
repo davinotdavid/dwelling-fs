@@ -34,7 +34,7 @@ router.delete('/:id', async function (req, res) {
 
   try {
     await CreditCard.deleteOne({ _id: id })
-    res.status(204)
+    res.status(204).send({})
   } catch (e) {
     res.status(400).json({ message: e.message })
   }
