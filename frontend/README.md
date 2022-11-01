@@ -1,8 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Frontend] Senior Fullstack Developer Technical Test
 
-## Getting Started
+Live link: https://dwelling-fs.vercel.app/
 
-First, run the development server:
+## How to run (in development mode)
 
 ```bash
 npm run dev
@@ -10,25 +10,32 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech stack
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Even though this is a relatively small fake applcation, I've decided to use the following technologies:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Next.js
+  - Sensible defaults, specially if scalability is required later on (SSR by default for better performance + SEO, routing, css modules)
+  - Possibility for using the /api folder for a "serverless" architecture
+  - Typescript support out of the box
+- React Query
+  - Already handles server state with cache invalidation, reducing the use of explicit useEffects
+  - Loading and state errors handling out of the box
+- CSS Modules
+  - IMHO, vanila CSS is already beautiful in itself with the exception of class name clashing. This solves the class name clashing (naming is hard).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+> **NOTE**: I've used the fetch API instead of something like Axios (for example) for simplicity purposes as I think that it wouldn't be a huge productivity / DX gain in this particular exercise.
 
-## Learn More
+## Hosting / Deploy
 
-To learn more about Next.js, take a look at the following resources:
+Since I've used Next.js, it made sense to me to use Vercel as my hosting of choice since they are the authors of the framework.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## If I had time I would've...
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+... confirmed about the 5px vs 8px base in the designs so that I can confidently change the root font element and use REMs instead of PX.
 
-## Deploy on Vercel
+... added (small) animations. Perhaps a shake-y effect if the card number validation goes wrong.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+... better error handling (error boundaries, for instance)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+... more (and better) tests
